@@ -8,6 +8,6 @@ async function bootstrap() {
 
   app.setGlobalPrefix(configService.get('app.prefix'));
 
-  await app.listen(3000);
+  await app.listen(configService.get('app.port'));
 }
 bootstrap();
