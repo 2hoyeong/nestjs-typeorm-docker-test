@@ -17,7 +17,7 @@ export class MysqlConfig implements TypeOrmOptionsFactory {
       password: config.password,
       database: config.database,
       timezone: 'Z',
-      logging: true,
+      logging: false,
       synchronize: false,
       keepConnectionAlive: true,
       autoLoadEntities: true,
