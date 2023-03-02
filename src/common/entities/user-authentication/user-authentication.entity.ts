@@ -8,7 +8,7 @@ export class UserAuthentication {
   idx: AuthenticationType;
 
   @Column({ type: 'varchar', length: 512, nullable: false, select: false })
-  secrets: string;
+  secret: string;
 
   @Column({ type: 'varchar', length: 512, nullable: false })
   salt: string;
@@ -21,4 +21,9 @@ export class UserAuthentication {
 
   @ManyToOne(() => User, (user) => user.userAuthentications)
   user?: User;
+
+  static create({}: Partial<UserAuthentication>): UserAuthentication {
+    const userAuthentication = new UserAuthentication();
+    return userAuthentication;
+  }
 }

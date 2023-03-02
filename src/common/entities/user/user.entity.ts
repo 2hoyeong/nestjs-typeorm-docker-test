@@ -20,4 +20,11 @@ export class User {
 
   @OneToMany(() => UserAuthentication, (userAuthentication) => userAuthentication.user)
   userAuthentications?: UserAuthentication[];
+
+  static from({ name, email }: Pick<User, 'name' | 'email'>): User {
+    const user = new User();
+    user.name = name;
+    user.email = email;
+    return user;
+  }
 }
