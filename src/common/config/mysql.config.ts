@@ -8,6 +8,9 @@ export class MysqlConfig implements TypeOrmOptionsFactory {
   constructor(private readonly configService: ConfigService) {}
 
   createTypeOrmOptions(): TypeOrmModuleOptions {
+    const { env } = this.configService.get('app');
+    assert.ok(env !== 'test', 'Cannot use MysqlConfig in test environment');
+
     const config = this.configService.get('database');
     return {
       type: 'mysql',
@@ -39,11 +42,11 @@ export class MysqlTestConfig implements TypeOrmOptionsFactory {
     const config = this.configService.get('database');
     return {
       type: 'mysql',
-      host: config.host,
-      port: config.port,
-      username: config.username,
-      password: config.password,
-      database: config.database,
+      host: 'localhost',
+      port: 3310,
+      username: 'test',
+      password: 'test1234!',
+      database: 'test_database',
       timezone: 'Z',
       logging: false,
       synchronize: true,
