@@ -44,7 +44,7 @@ export class MysqlTestConfig implements TypeOrmOptionsFactory {
       type: 'mysql',
       host: 'localhost',
       port: 3310,
-      username: 'test',
+      username: 'root',
       password: 'test1234!',
       database: 'test_database',
       timezone: 'Z',

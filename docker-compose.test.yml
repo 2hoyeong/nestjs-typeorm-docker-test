@@ -1,0 +1,16 @@
+services:
+  db:
+    image: mysql/mysql-server:latest
+    command:
+      - --bind-address=0.0.0.0
+    volumes:
+      - mysql_test_data:/var/lib/test/mysql/data/
+    ports:
+      - 3310:3306
+    environment:
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_ROOT_PASSWORD=test1234!
+      - MYSQL_DATABASE=test_database
+
+volumes:
+  mysql_test_data:

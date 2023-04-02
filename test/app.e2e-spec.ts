@@ -34,7 +34,7 @@ describe('AppController (e2e)', () => {
 
   describe('/users', () => {
     it('/signup (POST)', () => {
-      const user = { email: 'test_email@gmail.com', password: '123456', name: '이호영' };
+      const user = { email: 'test_email@gmail.com', password: '12345678', name: '이호영' };
       return request(app.getHttpServer()).post('/users/signup').send(user).expect(201).expect({ email: user.email });
     });
   });
